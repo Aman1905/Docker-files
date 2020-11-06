@@ -1,0 +1,31 @@
+docker commands:-
+
+1. service docker status (to check if it is start or not)
+		or
+	   docker info
+
+2. service docker start/stop (to start/stop the service of docker)
+
+3. docker images (to see if images are there in your local machine or not)
+
+4. docker ps (to see running containers)
+
+5. docker ps -a (to see all containers)
+
+6. docker run -it --name container_name image_name /bin/bash (to make and give a name to container also to enter inside the container)
+
+7. cat /etc/os-release (to check the details of OS installed in container)
+
+8. exit (to get out of the container)
+
+9. docker pull image_name (if you want to download and save any image in your local machine for your future use)
+
+10. docker search image_name (to check whatever images are present in the docker hub)
+
+11. docker start container_name (to start any stopped container)
+
+12. docker attach container_name (to go inside any container to start working in it)
+
+13. docker stop container_name (firstly make sure that you are not inside that container and then type this command to stop the container)
+
+14. docker rm container_name (to delete any container)
