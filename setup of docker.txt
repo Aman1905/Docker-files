@@ -1,0 +1,21 @@
+Steps to setup docker in linux (AWS):
+
+1. open AWS
+2. go to ec2 instance
+3. launch a linux machine in which docker is already included
+4. t2 micro
+5. enable public ip >> next >> next >> can give tag
+6. SSH and HTTP in security tag and anywhere and can give name >> review and launch
+7. make a new key pair >> docker key >> download >> launch
+8. copy public ip and access through putty
+9. go to putty gen to generate the key >> go to load >> download >> docker key >> save pvt key >> putty
+10. paste public ip >> ssh >> auth >> browse >> newly_pvt_saved_key_pair.ppk >> login it
+11. ec2-user
+12. sudo su
+13. yum update -y
+14. yum install docker -y
+15. which docker (to check docker is installed or not)
+16. docker -v (to check docker version)
+17. run all docker commands
+18. go to hub.docker.com >> create an account there
+19. you can search for any os image to download it in your local machine >> e.g. ubuntu
