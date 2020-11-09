@@ -1,0 +1,35 @@
+STEPS :-
+
+1. Login to AWS
+
+2. Create an EC2 instance and access it through putty or you can start your previously stopped instance.
+
+3. Now install the docker in your machine
+=> yum install docker -y
+
+4. Start the docker service
+=> service docker start
+
+5. Now create a container you want to make an image
+=> docker run -it --name --container_name image_name /bin/bash
+
+6. Now move to any default directory or create your own and make some changes in the container
+=> cd tmp/ (default dir)
+
+7. Make any file there
+=> touch file_name
+
+8. Now exit from here
+=> exit
+
+9. Now if you want to see the changes you have done yet then
+=> docker diff container_name
+
+10. Now create an image of this container
+=>  docker commit container_name image_name
+
+Note :- container_name ===>  must be same of which you want to make an image
+	image_name ===> any name you want to give to this new image
+
+11. Now create container of this new image you created
+=> docker run -it --name new_container_name image_name /bin/bash

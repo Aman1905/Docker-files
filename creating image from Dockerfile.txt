@@ -1,0 +1,26 @@
+Dockerfile is a type of text file in which you write all the instructions on how to create your image of the container i.e. what functionalities to be added in your image is written in this Dockerfile. It is necessary to write these commands in capital format and create this file as Dockerfile only.
+
+In real time industries also creating Dockerfile method is processed and you can create multiple images by one single Dockerfile just by doing some editing and it will not effect your previously created images.
+
+
+STEPS :-
+
+1. Create a Dockerfile
+=> vi Dockerfile
+
+2. Add instructions to it
+=> e.g > FROM ubuntu
+	 WORKDIR /tmp		{tmp is the name of dir in which I am working}
+	 RUN echo "Aman The Great" > /tmp/file_name
+	 COPY any_pre-existing_file /tmp
+	 ADD any_file_from_internet /tmp
+
+3. To create an image
+=> docker build -t image_name .
+
+4. Now create container form this image
+=> docker run -it --name container_name image_name /bin/bash
+
+5. Now to check that text file you have created in step 2 i.e. "Aman The Great"
+=> cd dir_name
+   cat file_name
