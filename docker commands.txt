@@ -8,9 +8,9 @@ docker commands:-
 
 3. docker images (to see if images are there in your local machine or not)
 
-4. docker ps (to see running containers)
+4. docker ps  (to see running containers)
 
-5. docker ps -a (to see all containers)
+5. docker ps -a	  (to see all containers)
 
 6. docker run -it --name container_name image_name /bin/bash (to make and give a name to container also to enter inside the container)
 
@@ -29,3 +29,21 @@ docker commands:-
 13. docker stop container_name (firstly make sure that you are not inside that container and then type this command to stop the container)
 
 14. docker rm container_name (to delete any container)
+
+15. docker stop $(docker ps -a -q)  (to stop running all the containers)
+
+16. docker rm $(docker -ps -a -q)   (to delete all stopped containers)
+
+17. docker rmi -f $(docker images -q)   (to delete all images)
+
+18. docker volume ls   (to check for volume files)
+
+19. docker volume create vol_name   (to simply create only volume file)
+
+20. docker volume rm vol_name  (to delete a volume file)
+
+21. docker volume prune  (to remove unused docker vol files)
+
+22. docker volume inspect vol_name
+
+23. docker container inspect container_name
