@@ -1,0 +1,22 @@
+Now we will see how we can share volumes between host and containers.
+
+STEPS :-
+
+1. Log into AWS EC2 instance and access it through putty
+
+2. Check the working directory here
+=> pwd
+   ls
+
+3. Now you will see some files are there in this dir if you wish you can create some of your own files too
+=> touch amanfile
+
+4. Now create a container and a volume dir inside that container and map that vol dir with ec2 instance vol dir (ec2-user)
+=> docker run -it --name container_name -v /home/ec2-user:/vol_name --privileged=true image_name /bin/bash
+   ls
+   cd vol_name
+   touch choprafile
+   exit
+
+5. Now go to your host machine vol dir (ec2-user) and check it
+=> cd ec2-user

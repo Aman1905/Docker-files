@@ -1,0 +1,30 @@
+1. Login into AWS and access it through putty
+
+2. sudo su
+
+3. yum install docker -y
+
+4. service docker start
+
+5. docker run -it --name cont_name os_name /bin/bash
+
+6. Now create some files inside the container and then create an image
+=> touch f1 f2 f3
+   docker commit cont_name image_name
+
+7. Now create an account in docker hub and again came into your host machinne
+=> docker login
+
+8. Now give a tag to your image name (name by which you want to publish it to the docker hub)
+=> docker tag image_name dockerID/new_image_name
+   docker push dockerID/new_image_name
+
+** dockerID >> your username while ceating your account in docker hub
+   image_name >> name of your image or os which you have created in step 6
+   new_image_name  >> name which you want to be published in docker hub
+
+9. Now you can see this image in your hub.
+   Again create another instance in another region and try to pull this from hub and then check for the files you have created in step 6
+
+=> docker pull dockerID/new_image_name
+   docker run -it --name container_name dockerID/new_image_name /bin/bash

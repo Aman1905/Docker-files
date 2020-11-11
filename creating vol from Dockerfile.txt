@@ -1,0 +1,34 @@
+Creating Volume from a Dockerfile
+
+STEPS :-
+
+1. Log into your AWS and launch your EC2 instance (linux) and access it through putty
+
+2. Create some empty files
+=> touch file1 file2 file3
+
+3. Create a Dockerfile
+=> vi Dockerfile
+   FROM ubuntu
+   VOLUME ["/vol_name"]
+
+4. Create an image and container from this Dockerfile
+=> docker build -t image_name .
+   docker run -it --name container1_name image_name /bin/bash
+
+5. Now you are inside the container 1 so to check vol dir and then create three empty files in vol dir and then exit from container
+=> ls
+   cd vol_name
+   touch filex filey filez 
+   exit
+
+6. Now share volume dir from container 1 to container 2
+=> docker run -it --name container2_name -privileged=true --volumes-from container1_name image_name /bin/bash
+
+7. Now check if volume dir is container2 or not
+=> ls
+   cd vol_name/
+   ls
+   exit
+
+8. Now if you have created any file in container2 volume then it would be visible from container1 volume dir because these both containers are sharing this volume directory.

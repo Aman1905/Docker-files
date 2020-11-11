@@ -1,0 +1,18 @@
+Creating volumes without using Dockerfile but with commands only
+
+STEPS :-
+
+1. Log into AWS and create and EC2 instance and access it through putty
+
+2. Create a container and declare volume directory
+=> docker run -it --name container1_name -v /vol_name image_name /bin/bash
+
+3. Now create some empty files inside vol dir
+=> cd /vol_name
+   touch f1 f2 f3
+   exit
+
+4. Create another container and share the volume dir
+=> docker run -it --name container2_name -privileged=true --volumes-from container1_name image_name /bin/bash
+
+5. Now check for vol dir inside container 2 and see whether you can see those files or not and vice versa

@@ -1,0 +1,35 @@
+We will see how we can expose the ports of the docker container so that one can  access these containers from the internet also and he did not need to log in to the docker container. just he will need is IP address only of that container or EC2 instance
+
+STEPS :-
+
+1. Log into AWS and access it through putty
+
+2. ec2-user
+
+3. sudo su
+
+4. yum update -y
+
+5. yum install docker -y
+
+6. service docker start
+
+7. docker run -td --name container_name -p 80:80 image/os_name      ( 80 is a port number of http protocol so to access internet. remember to define it while creating instance else you can also do it later in inbound settings)
+
+8. docker ps
+
+9. docker port container_name   (to check which ports are exposed in that container)
+
+10. docker exec -it container_name /bin/bash   (to go inside the container)
+
+11. apt-get update  (if your image/os is ubuntu then use this command to update it)
+
+12. apt-get install apache2 -y  (if10 your image/os is ubuntu and wish to install apache server)
+
+13. Now since you are inside the container types this command for testing
+=> cd /var/www/html      (you are goinh inside this dir and you will wirte your work here)
+   echo "This is Aman Chopra" >index.html
+
+14. service apache2 start
+
+15. Now go to google paste your public ip and see your self :) 
